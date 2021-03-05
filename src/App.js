@@ -32,7 +32,6 @@ function App() {
   useEffect(() => {
     axios.get(`${base}/pokemon?limit=150`)
     .then(response => {
-      console.log(response.data.results)
       setPokecards(response.data.results.map((result, i) => ({
         name: result.name,
         id: i+1,
@@ -58,6 +57,7 @@ function App() {
           </Route>
 
           <Route path="/favorites" component={Favorites} />
+          <Route path="/pokemon/:id" component={Result} />
         </Switch>
         <Navbar />
       </div>
